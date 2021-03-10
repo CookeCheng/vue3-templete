@@ -1,15 +1,18 @@
 import { App, ComponentCustomProperties } from 'vue';
 import { AxiosStatic } from 'axios';
+import AppRequest from '@/request/api/App';
 
 declare module '@vue/runtime-core' {
-  // interface ComponentCustomProperties {}
+  interface ComponentCustomProperties {
+    appRequest: AppRequest;
+  }
 }
 
 export default {
   install(app: App, axios: AxiosStatic) {
-    // const lotteryRequest: Lottery = new Lottery(axios);
+    const appRequest: AppRequest = new AppRequest(axios);
     Object.assign(app.config.globalProperties, {
-      // lotteryRequest
+      appRequest
     });
   }
 };

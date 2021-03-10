@@ -7,7 +7,7 @@ import 'regenerator-runtime/runtime';
 
 import axios, { AxiosStatic } from 'axios';
 
-import i18n from '@/plugins/i18n/i18n';
+import i18n from '@/plugins/i18n';
 
 import lodash from '@/plugins/lodash';
 

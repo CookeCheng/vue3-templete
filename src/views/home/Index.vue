@@ -11,8 +11,8 @@ export default defineComponent({
   name: 'Home',
   components: {},
   mounted() {
-    console.log(this.$utils.dayjs().format('YYYY-MM-DD hh:mm:ss'));
-    console.log((this.$i18n.locale = 'en'));
+    // console.log(this.$utils.dayjs().format('YYYY-MM-DD hh:mm:ss'));
+    // console.log((this.$i18n.locale = 'zh'));
   }
 });
 </script>
