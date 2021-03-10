@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    sdfas
+    {{ $t('message.hello') }}
   </div>
 </template>
 
@@ -12,6 +12,7 @@ export default defineComponent({
   components: {},
   mounted() {
     console.log(this.$utils.dayjs().format('YYYY-MM-DD hh:mm:ss'));
+    console.log((this.$i18n.locale = 'en'));
   }
 });
 </script>

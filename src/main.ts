@@ -7,6 +7,8 @@ import 'regenerator-runtime/runtime';
 
 import axios, { AxiosStatic } from 'axios';
 
+import i18n from '@/plugins/i18n/i18n';
+
 import lodash from '@/plugins/lodash';
 
 import utils from '@/utils/index';
@@ -27,23 +29,7 @@ const app: AppHost = createApp(App);
 
 app.use(store).use(router);
 
-// app.config.errorHandler = (err, vm, info) => {
-//   console.error(`Error：${err}`);
-//   console.info(`Error-vm：${vm}`);
-//   console.info(`Error-Info：${info}`);
-// };
-//
-// app.config.warnHandler = function(msg, vm, trace) {
-//   console.warn(`Warn：${msg}`);
-//   console.info(`Warn-vm：${vm}`);
-//   console.info(`Warn-Trace：${trace}`);
-// };
-//
-// window.addEventListener("unhandledrejection", function(e) {
-//   e.preventDefault();
-//   console.error(`unhandledrejection：${e}`);
-//   return true;
-// });
+app.use(i18n);
 
 app.use(lodash);
 app.use(utils);
