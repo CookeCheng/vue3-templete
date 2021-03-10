@@ -1,14 +1,14 @@
-import { App, ComponentCustomProperties } from "vue";
-import cloneDeep from "lodash/cloneDeep";
-import isEqual from "lodash/isEqual";
-import uniqWith from "lodash/uniqWith";
-import isBoolean from "lodash/isBoolean";
-import isDate from "lodash/isDate";
-import isElement from "lodash/isElement";
-import isNil from "lodash/isNil";
-import throttle from "lodash/throttle";
-import debounce from "lodash/debounce";
-import uniqBy from "lodash/uniqBy";
+import { App, ComponentCustomProperties } from 'vue';
+import cloneDeep from 'lodash/cloneDeep';
+import isEqual from 'lodash/isEqual';
+import uniqWith from 'lodash/uniqWith';
+import isBoolean from 'lodash/isBoolean';
+import isDate from 'lodash/isDate';
+import isElement from 'lodash/isElement';
+import isNil from 'lodash/isNil';
+import throttle from 'lodash/throttle';
+import debounce from 'lodash/debounce';
+import uniqBy from 'lodash/uniqBy';
 import {
   LodashClone,
   LodashDebounce,
@@ -20,7 +20,7 @@ import {
   LodashThrottle,
   LodashUniqBy,
   LodashUniqWith
-} from "lodash/fp";
+} from 'lodash/fp';
 
 interface MyLodash {
   cloneDeep: LodashClone;
@@ -35,7 +35,7 @@ interface MyLodash {
   uniqBy: LodashUniqBy;
 }
 
-declare module "@vue/runtime-core" {
+declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $_: MyLodash;
   }
