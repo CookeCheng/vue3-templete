@@ -13,6 +13,7 @@
     "axios": "^0.21.1",
     "better-scroll": "^2.2.1",
     "core-js": "^3.9.1",
+    "dayjs": "^1.10.4",
     "element-plus": "^1.0.2-beta.33",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2",

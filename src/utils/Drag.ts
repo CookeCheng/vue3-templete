@@ -13,9 +13,9 @@ export default class Drag {
   private maxTop: number;
   private mouseClickPosition: any;
   private moving: boolean;
-  constructor({ el }: {el: any}) {
-    this.dialog = el.querySelector(".el-dialog");
-    this.header = el.querySelector(".el-dialog__header");
+  constructor({ el }: { el: any }) {
+    this.dialog = el.querySelector('.el-dialog');
+    this.header = el.querySelector('.el-dialog__header');
 
     // 窗口大小
     this.windowHeight = window.innerHeight;
@@ -47,39 +47,39 @@ export default class Drag {
 
     // 绑定事件
     document.body.addEventListener(
-      "mousedown",
+      'mousedown',
       this.mouseDown.bind(this),
       false
     );
     document.body.addEventListener(
-      "mousemove",
+      'mousemove',
       this.mouseMove.bind(this),
       false
     );
-    document.body.addEventListener("mouseup", this.mouseUp.bind(this), false);
+    document.body.addEventListener('mouseup', this.mouseUp.bind(this), false);
   }
   destory() {
     // 还原样式
     this.dialog.style.transform = ``;
-    this.dialog.style.margin = "15vh auto 0";
+    this.dialog.style.margin = '15vh auto 0';
     // 解绑事件
     document.body.removeEventListener(
-      "mousedown",
+      'mousedown',
       this.mouseDown.bind(this),
       false
     );
     document.body.removeEventListener(
-      "mousemove",
+      'mousemove',
       this.mouseMove.bind(this),
       false
     );
     document.body.removeEventListener(
-      "mouseup",
+      'mouseup',
       this.mouseUp.bind(this),
       false
     );
   }
-  mouseDown(e:any) {
+  mouseDown(e: any) {
     if (this.findHeader(e.target)) {
       this.moving = true;
       const dialogRect = this.dialog.getBoundingClientRect();
@@ -101,7 +101,7 @@ export default class Drag {
       };
     }
   }
-  mouseMove(e:any) {
+  mouseMove(e: any) {
     if (this.moving) {
       const offsetX = e.pageX - this.mouseClickPosition.x;
       const offsetY = e.pageY - this.mouseClickPosition.y;
@@ -124,7 +124,7 @@ export default class Drag {
       this.dialog.style.transform = `translate3d(${translateX}px, ${translateY}px,0)`;
     }
   }
-  mouseUp(e:any) {
+  mouseUp(e: any) {
     if (this.moving) {
       const { left, top } = this.getPosition();
       this.dialog.style.transform = `translate3d(${Math.round(
@@ -133,9 +133,9 @@ export default class Drag {
       this.moving = false;
     }
   }
-  findHeader(dom:any):any {
+  findHeader(dom: any): any {
     // 查找dialog的header,用于触发拖动效果
-    if (dom.nodeName === "BODY") {
+    if (dom.nodeName === 'BODY') {
       return false;
     }
     if (dom === this.header) {

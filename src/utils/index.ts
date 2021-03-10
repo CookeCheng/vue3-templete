@@ -10,6 +10,7 @@ import { filterSpecial, filterNumber } from './filters';
 import Drag from './Drag';
 import { parseExcel, exportExcel } from './excel';
 import { getPerformance, getResources } from './performance';
+import dayjs from 'dayjs';
 
 interface Utils {
   sleep: typeof sleep;
@@ -26,6 +27,7 @@ interface Utils {
   exportExcel: typeof exportExcel;
   getPerformance: typeof getPerformance;
   getResources: typeof getResources;
+  dayjs: typeof dayjs;
 }
 
 declare module '@vue/runtime-core' {
@@ -51,7 +53,8 @@ export default {
         parseExcel,
         exportExcel,
         getPerformance,
-        getResources
+        getResources,
+        dayjs
       }
     });
   }

@@ -6,7 +6,7 @@
  */
 export function stringifyQueryString(obj: any): string {
   if (!obj) {
-    return "";
+    return '';
   }
   const pairs = [];
 
@@ -16,18 +16,18 @@ export function stringifyQueryString(obj: any): string {
     if (value instanceof Array) {
       for (let i = 0; i < value.length; ++i) {
         pairs.push(
-          encodeURIComponent(key + "[" + i + "]") +
-            "=" +
+          encodeURIComponent(key + '[' + i + ']') +
+            '=' +
             encodeURIComponent(value[i])
         );
       }
       continue;
     }
 
-    pairs.push(encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]));
+    pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]));
   }
 
-  return pairs.join("&");
+  return pairs.join('&');
 }
 
 /**
@@ -38,9 +38,9 @@ export function stringifyQueryString(obj: any): string {
  */
 export function parseQueryString(url: string): any {
   url = !url ? window.location.href : url;
-  let search = "";
-  if (url.includes("?")) {
-    search = url.substring(url.lastIndexOf("?") + 1);
+  let search = '';
+  if (url.includes('?')) {
+    search = url.substring(url.lastIndexOf('?') + 1);
   } else {
     return {};
   }
@@ -56,7 +56,7 @@ export function parseQueryString(url: string): any {
 
 export function getPath(url: string): string {
   let path = url;
-  const symbolIndex = url.indexOf("?");
+  const symbolIndex = url.indexOf('?');
   if (symbolIndex !== -1) {
     path = path.substring(0, symbolIndex);
   }
@@ -70,21 +70,21 @@ export function getPath(url: string): string {
  * @return {Object}
  */
 export function Cookie2Json(cookie: string): string {
-  let result = "";
-  cookie = cookie + ";";
-  const cookis = cookie.split(";");
+  let result = '';
+  cookie = cookie + ';';
+  const cookis = cookie.split(';');
   for (let i = 0; i < cookis.length - 1; i++) {
-    if (cookie[i].split("=").length > 0) {
+    if (cookie[i].split('=').length > 0) {
       result =
         result +
         ',"' +
-        cookis[i].split("=")[0].trim() +
+        cookis[i].split('=')[0].trim() +
         '":"' +
-        cookis[i].split("=")[1] +
+        cookis[i].split('=')[1] +
         '"';
     }
   }
-  cookie = JSON.parse("{" + result.substr(1).replace("\\", "") + "}");
+  cookie = JSON.parse('{' + result.substr(1).replace('\\', '') + '}');
   result = cookie;
   return result;
 }
