@@ -13,7 +13,7 @@ export default class BaseRequest {
     const requestConfig: AxiosRequestConfig = {
       url: config.url,
       method: config.method,
-      ...config.opts
+      ...config.options
     };
 
     if (requestConfig.method !== 'get') {

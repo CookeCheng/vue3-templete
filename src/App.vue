@@ -8,7 +8,10 @@ export default defineComponent({
   async mounted() {
     const langRes = await this.appRequest.getLanguage({
       params: { a: 1 },
-      headers: { sdf: 22 }
+      headers: {
+        'Content-Type': 'multipart/form-data;charset=UTF-8',
+        'X-Requested-With': 'sdf'
+      }
     });
     console.log(langRes);
     const i18n: any = this.$i18n;

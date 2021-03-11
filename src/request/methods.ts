@@ -14,7 +14,7 @@ export const get = (url: string) => (
     return oldValue.call(this, {
       method: 'get',
       url: newUrl,
-      opts: args[0]
+      options: args[0]
     });
   };
   return descriptor;
@@ -36,7 +36,7 @@ export const post = (url: string) => (
     return oldValue.call(this, {
       method: 'post',
       url: newUrl,
-      opts: args[0]
+      options: args[0]
     });
   };
   return descriptor;
