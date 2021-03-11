@@ -4,7 +4,7 @@ import { App, ComponentCustomProperties } from 'vue';
 export default {
   install(app: App) {
     const i18n = createI18n({
-      locale: 'ja', // set locale
+      locale: 'zh', // set locale
       fallbackLocale: 'en', // set fallback locale
       messages: {} // set locale messages
     });
