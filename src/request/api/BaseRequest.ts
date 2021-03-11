@@ -20,6 +20,7 @@ export default class BaseRequest {
       requestConfig.data = requestConfig.params;
       requestConfig.params = '';
     }
+
     const res: AxiosResponse = await this.$axios(requestConfig);
 
     return res;

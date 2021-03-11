@@ -3,6 +3,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { mapGetters, mapMutations } from 'vuex';
 export default defineComponent({
   name: 'App',
   async mounted() {
@@ -13,14 +14,20 @@ export default defineComponent({
         'X-Requested-With': 'sdf'
       }
     });
-    console.log(langRes);
     const i18n: any = this.$i18n;
     for (const lang in langRes) {
       i18n.setLocaleMessage(lang, langRes[lang]);
     }
-    // console.log(
-    //   (this.$i18n as any).setLocaleMessage('zh', { message: { hello: 'dfs' } })
-    // );
+  },
+  methods: {
+    ...mapMutations({
+      setToken: 'app/setToken'
+    })
+  },
+  computed: {
+    ...mapGetters({
+      token: 'app/token'
+    })
   }
 });
 </script>
