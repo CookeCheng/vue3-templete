@@ -5,7 +5,6 @@
   height: $size;
   line-height: $size;
 }
-$font-size: 30px;
 
 @mixin mlEllipsis($line) {
   display: -webkit-box;

@@ -31,7 +31,6 @@ import {
   ElTable,
   ElTableColumn
 } from 'element-plus';
-import 'element-plus/lib/theme-chalk/index.css';
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $message: typeof ElMessage;
@@ -77,9 +76,7 @@ export default {
     });
 
     plugins.forEach(plugin => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      app.use(plugin);
+      app.use(plugin as any);
     });
   }
 };

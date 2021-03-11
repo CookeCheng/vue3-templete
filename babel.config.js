@@ -2,10 +2,12 @@ module.exports = {
   presets: [['@vue/cli-plugin-babel/preset', { useBuiltIns: 'entry' }]],
   plugins: [
     [
-      'component',
+      'import',
       {
         libraryName: 'element-plus',
-        styleLibraryName: 'theme-chalk'
+        customStyleName: name => {
+          return `element-plus/lib/theme-chalk/${name}.css`;
+        }
       }
     ]
   ]

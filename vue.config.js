@@ -18,14 +18,7 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
-      .set('assets', resolve('src/assets'))
-      .set('components', resolve('src/components'))
-      .set('extend', resolve('src/extend'))
-      .set('plugins', resolve('src/plugins'))
-      .set('request', resolve('src/request'))
-      .set('store', resolve('src/store'))
-      .set('utils', resolve('src/utils'))
-      .set('views', resolve('src/views'));
+      .set('vue-i18n', 'vue-i18n/dist/vue-i18n.esm-browser.prod.js');
 
     if (process.env.VUE_APP_MODE === 'analyze') {
       config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin);
@@ -110,7 +103,7 @@ module.exports = {
     hotOnly: true,
     proxy: {
       '/api': {
-        target: 'https://www.luckymp.com/',
+        target: 'https://127.0.0.1/',
         changeOrigin: true,
         pathRewrite: {
           // '^/api': ''

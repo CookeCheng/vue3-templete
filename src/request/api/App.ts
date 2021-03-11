@@ -1,3 +1,5 @@
+import { AxiosResponse, AxiosRequestConfig } from 'axios';
+import { RequestConfig } from '@/interfaces/request';
 import { get, post } from '../methods';
 import BaseRequest from './BaseRequest';
 
@@ -5,9 +7,11 @@ export default class AppRequest extends BaseRequest {
   /**
    * 获取语言包
    */
-  @get('http://192.168.70.61:9999/language.json')
-  async getLanguage(opts: any = {}): Promise<any> {
-    const res = await this._requestFormat(opts);
+  @get('/language.json')
+  async getLanguage(requestConfig: AxiosRequestConfig = {}): Promise<any> {
+    const res: AxiosResponse = await this._requestFormat(
+      requestConfig as RequestConfig
+    );
     return res;
   }
 }

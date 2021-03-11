@@ -15,7 +15,7 @@ import utils from '@/utils/index';
 
 import elementui from '@/plugins/elementui';
 
-import commonComponets from '@/components/common';
+import commonComponets from '@/components/index';
 
 import Interceptors from '@/request/interceptors';
 

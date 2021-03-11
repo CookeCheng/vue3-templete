@@ -18,11 +18,24 @@ export default {
 
     axios.interceptors.response.use(
       res => {
-        return res;
+        const status = res.status;
+        switch (status) {
+          case 200:
+            return res.data;
+          case 401:
+            ElMessage.error('登陆超时,请重新登录！');
+            break;
+          case 403:
+            ElMessage.error('没有权限！');
+            break;
+          default:
+            ElMessage.error('系统维护中，稍后回来！');
+            break;
+        }
       },
       (error: AxiosError) => {
         if (!error.response) {
-          ElMessage.error('网络错误！');
+          ElMessage.error('网络异常！');
           return Promise.reject(error);
         }
         const status = error.response.status;

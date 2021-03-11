@@ -1,28 +1,27 @@
-import { AxiosStatic } from 'axios';
-import { ElMessage } from 'element-plus';
+import { AxiosResponse, AxiosStatic, AxiosRequestConfig } from 'axios';
+import { RequestConfig } from '@/interfaces/request';
 export default class BaseRequest {
   private $axios: AxiosStatic;
   constructor(axios: AxiosStatic) {
     this.$axios = axios;
   }
   /**
-   * 数据格式化
-   * @param {object} opts
+   * 格式化接口请求
+   * @param RequestConfig config
    */
-  async _requestFormat(opts: any): Promise<any> {
-    const method: 'get' | 'post' = opts.method;
-    const url = opts.url;
-    let res: any = null;
-    if (method === 'get') {
-      res = await this.$axios.get(url, { params: opts.params });
-    } else if (method === 'post') {
-      res = await this.$axios.post(url, opts.params);
+  async _requestFormat(config: RequestConfig): Promise<any> {
+    const requestConfig: AxiosRequestConfig = {
+      url: config.url,
+      method: config.method,
+      ...config.opts
+    };
+
+    if (requestConfig.method !== 'get') {
+      requestConfig.data = requestConfig.params;
+      requestConfig.params = '';
     }
-    if (res.status === 200) {
-      return res.data;
-    } else {
-      ElMessage.error('网络错误！');
-      return null;
-    }
+    const res: AxiosResponse = await this.$axios(requestConfig);
+
+    return res;
   }
 }
