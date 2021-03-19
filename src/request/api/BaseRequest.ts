@@ -20,11 +20,12 @@ export default class BaseRequest {
       requestConfig.data = requestConfig.params;
       requestConfig.params = '';
     }
-
     try {
       const res: AxiosResponse = await this.$axios(requestConfig);
       return Promise.resolve(res);
     } catch (error) {
+      console.error(error);
+
       return Promise.reject(error);
     }
   }

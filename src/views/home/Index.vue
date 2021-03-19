@@ -38,12 +38,12 @@ export default defineComponent({
   async mounted() {
     // console.log(this.$utils.dayjs().format('YYYY-MM-DD hh:mm:ss'));
     // console.log((this.$i18n.locale = 'en'));
-    try {
-      const res = await this.method();
-      console.log(res);
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   const res = await this.method();
+    //   console.log(res);
+    // } catch (error) {
+    //   console.error(error);
+    // }
   },
   methods: {
     async method() {

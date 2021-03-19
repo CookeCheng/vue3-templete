@@ -102,7 +102,7 @@ module.exports = {
     https: false,
     hotOnly: true,
     proxy: {
-      '/api': {
+      '/': {
         target: 'https://127.0.0.1/',
         changeOrigin: true,
         pathRewrite: {
