@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    {{ $t('message.hello') }} 
-    <div class="lang">
+    {{ $t('message.hello') }}
+    <!-- <div class="lang">
       中文：{{ lang.zh }} <br />
       英文：{{ lang.en }} <br />
       日语：{{ lang.ja }}
@@ -16,7 +16,7 @@
       <el-form-item label="日语">
         <el-input v-model="lang.ja"></el-input>
       </el-form-item>
-    </el-form>
+    </el-form> -->
   </div>
 </template>
 
@@ -38,6 +38,11 @@ export default defineComponent({
   mounted() {
     // console.log(this.$utils.dayjs().format('YYYY-MM-DD hh:mm:ss'));
     // console.log((this.$i18n.locale = 'en'));
+    enum GenderEnum {
+      'male' = '男生',
+      'female' = '女生'
+    }
+    console.log(typeof GenderEnum);
   }
 });
 </script>
