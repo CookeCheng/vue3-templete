@@ -35,14 +35,21 @@ export default defineComponent({
       }
     };
   },
-  mounted() {
+  async mounted() {
     // console.log(this.$utils.dayjs().format('YYYY-MM-DD hh:mm:ss'));
     // console.log((this.$i18n.locale = 'en'));
-    enum GenderEnum {
-      'male' = '男生',
-      'female' = '女生'
+    try {
+      const res = await this.method();
+      console.log(res);
+    } catch (error) {
+      console.error(error);
     }
-    console.log(typeof GenderEnum);
+  },
+  methods: {
+    async method() {
+      await this.$utils.sleep(2000);
+      return Promise.reject(1);
+    }
   }
 });
 </script>

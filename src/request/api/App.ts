@@ -9,9 +9,13 @@ export default class AppRequest extends BaseRequest {
    */
   @get('/language.json')
   async getLanguage(requestConfig: AxiosRequestConfig = {}): Promise<any> {
-    const res: AxiosResponse = await this._requestFormat(
-      requestConfig as RequestConfig
-    );
-    return res;
+    try {
+      const res: AxiosResponse = await this._requestFormat(
+        requestConfig as RequestConfig
+      );
+      return Promise.resolve(res);
+    } catch (error) {
+      return Promise.reject(error);
+    }
   }
 }
