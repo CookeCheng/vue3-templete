@@ -7,7 +7,7 @@ import { mapGetters, mapMutations } from 'vuex';
 export default defineComponent({
   name: 'App',
   async mounted() {
-    // this.$axios.defaults.headers.common['token'] = 'res.data.token';
+    this.$axios.defaults.headers.common['token'] = 'res.data.token';
     const langRes = await this.appRequest.getLanguage({
       params: { a: 1 },
       headers: {}

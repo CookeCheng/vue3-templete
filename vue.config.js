@@ -102,8 +102,8 @@ module.exports = {
     https: false,
     hotOnly: true,
     proxy: {
-      '/': {
-        target: 'https://127.0.0.1/',
+      '/language.json': {
+        target: 'http://127.0.0.1:9999',
         changeOrigin: true,
         pathRewrite: {
           // '^/api': ''

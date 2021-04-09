@@ -15,6 +15,8 @@ import utils from '@/utils/index';
 
 import elementui from '@/plugins/elementui';
 
+import echarts from '@/plugins/echarts';
+
 import commonComponets from '@/components/index';
 
 import Interceptors from '@/request/interceptors';
@@ -35,6 +37,8 @@ app.use(lodash);
 app.use(utils);
 
 app.use(elementui);
+
+app.use(echarts);
 
 app.use(commonComponets);
 

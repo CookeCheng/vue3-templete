@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-
+import { io } from 'socket.io-client';
 export default defineComponent({
   name: 'Home',
   components: {},
@@ -36,21 +36,21 @@ export default defineComponent({
     };
   },
   async mounted() {
-    // console.log(this.$utils.dayjs().format('YYYY-MM-DD hh:mm:ss'));
     // console.log((this.$i18n.locale = 'en'));
-    // try {
-    //   const res = await this.method();
-    //   console.log(res);
-    // } catch (error) {
-    //   console.error(error);
-    // }
+    // const socket = io('http://192.168.70.19:7979', {
+    //   transports: ['websocket', 'polling']
+    // });
+    // console.log(socket);
+    // socket.on('connect', () => {
+    //   // either with send()
+    //   socket.send('Hello!');
+    // });
+    // // handle the event sent with socket.send()
+    // socket.on('message', data => {
+    //   console.log(data);
+    // });
   },
-  methods: {
-    async method() {
-      await this.$utils.sleep(2000);
-      return Promise.reject(1);
-    }
-  }
+  methods: {}
 });
 </script>
 <style lang="scss" scoped>
