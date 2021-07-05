@@ -88,6 +88,7 @@ module.exports = {
     sourceMap: false,
     loaderOptions: {
       sass: {
+        // additionalData
         prependData: `@import "@/assets/scss/variables.scss";@import "@/assets/scss/mixins.scss";`
       }
     }

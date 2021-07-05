@@ -1,5 +1,5 @@
 {
-  "name": "vue3-template",
+  "name": "gy",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,6 +23,7 @@
     "vue-i18n": "^9.0.0",
     "vue-router": "^4.0.6",
     "vuex": "^4.0.0-0",
+    "watermarkjs": "^2.1.1",
     "xlsx": "^0.16.9"
   },
   "devDependencies": {

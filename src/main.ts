@@ -13,7 +13,9 @@ import lodash from '@/plugins/lodash';
 
 import utils from '@/utils/index';
 
-import elementui from '@/plugins/elementui';
+// import elementui from '@/plugins/elementui';
+import ElementPlus from 'element-plus';
+import 'element-plus/lib/theme-chalk/index.css';
 
 import echarts from '@/plugins/echarts';
 
@@ -29,14 +31,12 @@ import '@/assets/scss/main.scss';
 
 const app: AppHost = createApp(App);
 
-app.use(store).use(router);
-
 app.use(i18n);
 
 app.use(lodash);
 app.use(utils);
 
-app.use(elementui);
+app.use(ElementPlus);
 
 app.use(echarts);
 
@@ -47,6 +47,8 @@ app.use(Interceptors, axios);
 app.use(request, axios);
 
 app.use(directives);
+
+app.use(store).use(router);
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
